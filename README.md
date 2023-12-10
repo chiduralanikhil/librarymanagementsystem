@@ -1,4 +1,4 @@
-This is a simple library management system with functins adding book, updating book and getting all books.
+This is a simple library management system with functions adding book, updating book and getting all books.
 
 ## Prerequisites
 
@@ -11,16 +11,17 @@ Make sure you have the following installed on your machine:
 
 1. **Clone the Repository:**
    git clone https://github.com/chiduralanikhil/librarymanagementsystem
+   
    cd librarymanagementsystem
 
-2. **Install Dependencies:**
+3. **Install Dependencies:**
    npm install
 
-3. **SetUp Environment Vaiables**
+4. **SetUp Environment Vaiables**
    PORT = 5000
    MONGO_URL = "your mongodb cluster url"
   
-4. ****
+5. ****
 
 
 
