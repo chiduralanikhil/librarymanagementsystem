@@ -11,9 +11,9 @@ app.use(bodyParser.json());
 connectDB();
 
 app.post('/api/books', async (req, res) => {
-  const { title, author, published_date } = req.body;
+  const { bookId, title, author, published_date } = req.body;
   console.log(req.body)
-  if (!title || !author) {
+  if (!bookId || !title || !author) {
     res.status(400).json({ error: 'Title and Author are required' });
     return;
   }
@@ -25,6 +25,7 @@ app.post('/api/books', async (req, res) => {
       return;
     }
     const newBook = await bookModel.create({
+      bookId,
       title,
       author,
       published_date
@@ -46,10 +47,36 @@ app.get('/api/books', async (req, res) => {
   }
 });
 
+
+app.put('/api/books/:id', async (req, res) => {
+  const bookId = req.params.id;
+  console.log(bookId)
+  const {title, author, published_date } = req.body;
+  try {
+    const Id = await bookModel.findOne({bookId})
+    console.log(Id._id)
+    const updatedBook = await bookModel.findByIdAndUpdate(Id._id, { title, author, published_date }, { new: true });
+    if (!updatedBook) {
+      res.status(404).json({ error: 'Book not found'});
+      return;
+    }
+    res.json({ message: 'Book updated successfully' });
+  } catch (err) {
+    console.error('Error updating book details:', err.message);
+    res.status(500).json({ error: 'Book with given id not found' });
+  }
+});
+
 app.get("/",(req,res) => {
   res.sendFile(__dirname + '/index.html');
 })
 
+
 app.listen(process.env.PORT, () => {
-  console.log(`Server is running on http://localhost:${process.env.PORT}`);
+  try{
+      console.log(`Server is running on http://localhost:${process.env.PORT}`);
+  }
+  catch(error){
+     console.log(error)   //handling error for running servr=er
+  }
 });
