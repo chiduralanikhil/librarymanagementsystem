@@ -54,6 +54,10 @@ app.put('/api/books/:id', async (req, res) => {
   const {title, author, published_date } = req.body;
   try {
     const Id = await bookModel.findOne({bookId})
+    if(!Id) {
+      res.status(404).json({error : "Book with entered id not found"})
+      return;
+    }
     console.log(Id._id)
     const updatedBook = await bookModel.findByIdAndUpdate(Id._id, { title, author, published_date }, { new: true });
     if (!updatedBook) {
@@ -63,7 +67,7 @@ app.put('/api/books/:id', async (req, res) => {
     res.json({ message: 'Book updated successfully' });
   } catch (err) {
     console.error('Error updating book details:', err.message);
-    res.status(500).json({ error: 'Book with given id not found' });
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
