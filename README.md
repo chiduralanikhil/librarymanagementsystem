@@ -15,17 +15,32 @@ Make sure you have the following installed on your machine:
    
    cd librarymanagementsystem
 
-3. **Install Dependencies:**
+2. **Install Dependencies:**
    
    npm install
 
-5. **SetUp Environment Vaiables**
+3. **SetUp Environment Vaiables**
    
    PORT = 5000
 
    MONGO_URL = "your mongodb cluster url"
   
-7. ****
+4. **Using Postman to use Get, Post, Put requests to the given end points**
+
+   Create a Account in postman.
+   
+   Click new option on the left top corner.
+
+   ### Get all Books
+   Get request to the given end point give all books in database.
+
+   ### Add new Book
+   Add new book data like id, title, author and published_date in the body section of post request.
+   
+   Then make a Post request to the given end point with data of new book.
+
+   ### Update Book
+   
 
 
 
