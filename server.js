@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const dotenv = require("dotenv");
 const connectDB = require('./connectDB');
 const bookModel = require("./Models/bookModel")
-
 const app = express();
 dotenv.config();
 app.use(bodyParser.json());
@@ -59,6 +58,7 @@ app.put('/api/books/:id', async (req, res) => {
       return;
     }
     console.log(Id._id)
+    
     const updatedBook = await bookModel.findByIdAndUpdate(Id._id, { title, author, published_date }, { new: true });
     if (!updatedBook) {
       res.status(404).json({ error: 'Book not found'});
