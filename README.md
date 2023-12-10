@@ -33,9 +33,10 @@ Make sure you have the following installed on your machine:
 
    **Get All Books**
    
-     Get request to the given end point give all books in database.
+     Get request to the given end point will give all books in database.
 
    **Add new Book**
+   
      Add new book data like id, title, author and published_date in the body section of post request.
    
      Then make a Post request to the given end point with data of new book.
