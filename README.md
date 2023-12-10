@@ -31,15 +31,19 @@ Make sure you have the following installed on your machine:
    
    Click new option on the left top corner.
 
-   ** Get all Books **
-   Get request to the given end point give all books in database.
-
-   ### Add new Book
-   Add new book data like id, title, author and published_date in the body section of post request.
+   **Get All Books**
    
-   Then make a Post request to the given end point with data of new book.
+     Get request to the given end point give all books in database.
 
-   ### Update Book
+   **Add new Book**
+     Add new book data like id, title, author and published_date in the body section of post request.
+   
+     Then make a Post request to the given end point with data of new book.
+
+   **Update Book**
+
+     Put Request to the end point with id will update the Book details.
+   
    
 
 
