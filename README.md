@@ -24,8 +24,12 @@ Make sure you have the following installed on your machine:
    PORT = 5000
 
    MONGO_URL = "your mongodb cluster url"
+
+4. **Start the server**
+
+   node server
   
-4. **Using Postman to use Get, Post, Put requests to the given end points**
+6. **Using Postman to use Get, Post, Put requests to the given end points**
 
    Create a Account in postman.
    
